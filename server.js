@@ -29,10 +29,6 @@ const inquirySchema = new mongoose.Schema({
 const Inquiry = mongoose.model('Inquiry', inquirySchema);
 
 // Endpoints
-app.get('/', (req, res) => {
-    res.send('Portfolio MongoDB Backend is running...');
-});
-
 // POST: Save inquiry
 app.post('/api/contact', async (req, res) => {
     try {
