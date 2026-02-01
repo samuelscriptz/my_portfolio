@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | Samuel Paul A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            margin: 0 auto 30px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .profile-title {
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .profile-bio {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .profile-bio p {
+            margin-bottom: 20px;
+        }
+
+        .profile-socials {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .profile-socials a {
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .profile-socials a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .collab-note {
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-outline"></div>
+
+    <!-- Stars Background -->
+    <div id="stars-container"></div>
+
+    <div class="profile-container glass-card reveal active">
+        <img src="profile.jpeg" alt="Samuel Paul A" class="profile-image">
+        <h1 class="profile-name">SAMUEL PAUL A</h1>
+        <p class="profile-title">B. Tech Computer Science Engineering</p>
+
+        <div class="profile-bio">
+            <p>I’m a Computer Science student specializing in Data Science and a freelancer who builds modern,
+                user-friendly websites and applications. I enjoy working at the intersection of web development, AI, and
+                data, helping ideas grow into practical and scalable digital solutions.</p>
+
+            <p>As a freelancer, I focus on understanding client needs and delivering clean, reliable, and easy-to-use
+                products. I design responsive interfaces and support them with smart, data-driven logic, ensuring both
+                performance and usability.</p>
+
+            <p>I actively work with AI, data analysis, and automation to improve functionality, streamline processes,
+                and enhance user experience. Whether it’s creating a website, adding intelligent features, or optimizing
+                existing systems, I aim to deliver solutions that create real value.</p>
+
+            <p>I’m a fast learner who enjoys experimenting with new technologies and solving real-world problems. My
+                approach is simple: build clear, efficient, and meaningful technology that clients can trust.</p>
+
+            <p>I’m continuously learning, building projects, and growing as a technologist and freelancer.</p>
+        </div>
+
+        <div class="profile-socials">
+            <a href="https://github.com/samuelscriptz" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/samuel-paul-amardeep-13544b2a0" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="mailto:samuelpaul.amardeep@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <p class="collab-note">Available for freelance opportunities, development projects, and professional
+            collaborations.</p>
+
+        <a href="index.html" class="btn outline back-btn">BACK TO PORTFOLIO</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

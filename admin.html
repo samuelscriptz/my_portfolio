@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inquiry Dashboard | Samuel Paul A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .inquiry-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
+        .inquiry-table th {
+            text-align: left;
+            padding: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .inquiry-row {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--surface-border);
+            transition: transform 0.3s ease;
+        }
+
+        .inquiry-row:hover {
+            transform: scale(1.01);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .inquiry-row td {
+            padding: 20px;
+            border-top: 1px solid var(--surface-border);
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .inquiry-row td:first-child {
+            border-left: 1px solid var(--surface-border);
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+
+        .inquiry-row td:last-child {
+            border-right: 1px solid var(--surface-border);
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .name {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .email {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .message {
+            color: var(--text-dim);
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-dim);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-outline"></div>
+
+    <div class="dashboard-container">
+        <h1>Received Inquiries (MongoDB)</h1>
+        <div id="dashboard-content">
+            <p class="no-messages">Loading messages from database...</p>
+        </div>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </div>
+
+    <script>
+        async function loadMessages() {
+            try {
+                const response = await fetch('/api/messages');
+                const messages = await response.json();
+
+                const container = document.getElementById('dashboard-content');
+                if (!messages || messages.length === 0) {
+                    container.innerHTML = '<p class="no-messages">No messages in database yet. Try sending one from the portfolio!</p>';
+                    return;
+                }
+
+                let html = '<table class="inquiry-table"><thead><tr><th>Visitor</th><th>Message</th></tr></thead><tbody>';
+
+                messages.forEach(msg => {
+                    const date = new Date(msg.date).toLocaleString();
+                    html += `
+                        <tr class="inquiry-row">
+                            <td width="30%">
+                                <div class="name">${msg.name}</div>
+                                <div class="email">${msg.email}</div>
+                                <div class="date">${date}</div>
+                            </td>
+                            <td>
+                                <div class="message">${msg.message}</div>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            } catch (error) {
+                document.getElementById('dashboard-content').innerHTML = `
+                    <p class="no-messages" style="color: #ff4d4d;">
+                        Error connecting to MongoDB server. Make sure your backend is running!<br>
+                        <span style="font-size: 0.8rem; color: #999;">(Run 'node server.js' in your terminal)</span>
+                    </p>`;
+            }
+        }
+
+        loadMessages();
+        // Refresh every 30 seconds
+        setInterval(loadMessages, 30000);
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
