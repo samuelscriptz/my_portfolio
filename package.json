@@ -1,6 +1,10 @@
 {
   "name": "samuel-portfolio",
   "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static build not required'"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
