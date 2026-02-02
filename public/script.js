@@ -167,7 +167,14 @@ if (contactForm) {
                 body: JSON.stringify(formData)
             });
 
-            const data = await response.json();
+            const text = await response.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                // If it's not JSON, it's likely an HTML error page (404/500)
+                throw new Error("Server Error: " + text.substring(0, 100));
+            }
 
             if (response.ok) {
                 alert("Message sent successfully!");
