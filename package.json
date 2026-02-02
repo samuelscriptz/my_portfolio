@@ -1,4 +1,6 @@
 {
+    "name": "samuel-portfolio",
+    "version": "1.0.0",
     "dependencies": {
         "mongoose": "^8.1.1"
     }
