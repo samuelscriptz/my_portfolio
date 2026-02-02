@@ -167,15 +167,17 @@ if (contactForm) {
                 body: JSON.stringify(formData)
             });
 
+            const data = await response.json();
+
             if (response.ok) {
                 alert("Message sent successfully!");
                 contactForm.reset();
             } else {
-                throw new Error("Failed to send");
+                throw new Error(data.error || "Failed to send message");
             }
         } catch (error) {
             console.error("Contact form error:", error);
-            alert("Could not connect to the server. Making sure the backend is running!");
+            alert(error.message);
         } finally {
             submitBtn.disabled = false;
             btnText.textContent = "Send Message";
