@@ -1,7 +1,13 @@
 {
     "name": "samuel-portfolio",
     "version": "1.0.0",
+    "scripts": {
+        "start": "node api/index.js"
+    },
     "dependencies": {
         "mongoose": "^8.1.1"
+    },
+    "engines": {
+        "node": "18.x"
     }
 }
