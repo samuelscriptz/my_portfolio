@@ -533,3 +533,22 @@ window.addEventListener("click", (e) => {
         musicModal.classList.remove("active");
     }
 });
+/* MOBILE MENU TOGGLE */
+const menuToggle = document.querySelector(".mobile-menu-toggle");
+const navUl = document.querySelector("nav ul");
+const navLinksArr = document.querySelectorAll("nav ul li a");
+
+if (menuToggle && navUl) {
+    menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navUl.classList.toggle("active");
+    });
+
+    // Close menu when a link is clicked
+    navLinksArr.forEach(link => {
+        link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navUl.classList.remove("active");
+        });
+    });
+}
