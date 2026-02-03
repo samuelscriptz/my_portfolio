@@ -10,18 +10,30 @@ const inquirySchema = new mongoose.Schema({
 
 const Inquiry = mongoose.models.Inquiry || mongoose.model('Inquiry', inquirySchema);
 
+// Connection Caching
+let cachedDb = null;
+
+async function connectToDatabase() {
+    if (cachedDb) return cachedDb;
+
+    const MONGODB_URI = process.env.MONGODB_URI;
+    if (!MONGODB_URI) {
+        throw new Error('MONGODB_URI is not defined');
+    }
+
+    // Connect without deprecated options
+    const db = await mongoose.connect(MONGODB_URI);
+    cachedDb = db;
+    return db;
+}
+
 module.exports = async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
     try {
-        const MONGODB_URI = process.env.MONGODB_URI;
-        if (!MONGODB_URI) {
-            throw new Error('MONGODB_URI is not defined');
-        }
-
-        await mongoose.connect(MONGODB_URI);
+        await connectToDatabase();
 
         const { name, email, message } = req.body;
 
