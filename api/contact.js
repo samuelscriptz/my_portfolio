@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Resend } = require('resend');
 
 // Schema and Model (Shared)
