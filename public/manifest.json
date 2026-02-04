@@ -1,0 +1,17 @@
+{
+    "name": "Samuel Paul Portfolio Admin",
+    "short_name": "Inquiries",
+    "description": "View and manage portfolio inquiries",
+    "start_url": "/admin.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#00ffd5",
+    "icons": [
+        {
+            "src": "/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

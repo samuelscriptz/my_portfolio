@@ -6,6 +6,10 @@
     <title>Inquiry Dashboard | Samuel Paul A</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -112,6 +116,45 @@
 
         .back-link:hover {
             color: var(--accent);
+        }
+
+        /* Responsive Dashboard */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .inquiry-table,
+            .inquiry-table thead,
+            .inquiry-table tbody,
+            .inquiry-table th,
+            .inquiry-table td,
+            .inquiry-table tr {
+                display: block;
+            }
+
+            .inquiry-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            .inquiry-row {
+                margin-bottom: 20px;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .inquiry-row td {
+                border: none !important;
+                padding: 15px !important;
+                position: relative;
+            }
+
+            .inquiry-row td:first-child {
+                background: rgba(0, 255, 213, 0.1);
+                border-bottom: 1px solid var(--surface-border) !important;
+            }
         }
     </style>
 </head>
