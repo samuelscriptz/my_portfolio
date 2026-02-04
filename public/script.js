@@ -161,6 +161,20 @@ if (contactForm) {
             submitBtn.disabled = true;
             btnText.textContent = "Sending...";
 
+            // Status message element
+            let statusMsg = contactForm.querySelector('.status-msg');
+            if (!statusMsg) {
+                statusMsg = document.createElement('div');
+                statusMsg.className = 'status-msg';
+                statusMsg.style.marginTop = '15px';
+                statusMsg.style.fontSize = '0.9rem';
+                statusMsg.style.fontWeight = '600';
+                statusMsg.style.transition = 'all 0.3s ease';
+                contactForm.appendChild(statusMsg);
+            }
+            statusMsg.textContent = "Connecting to database...";
+            statusMsg.style.color = "var(--text-dim)";
+
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -172,19 +186,26 @@ if (contactForm) {
             try {
                 data = JSON.parse(text);
             } catch (e) {
-                // If it's not JSON, it's likely an HTML error page (404/500)
-                throw new Error("Server Error: " + text.substring(0, 100));
+                throw new Error("Server Error: Unable to process response");
             }
 
             if (response.ok) {
-                alert("Message sent successfully!");
+                statusMsg.style.color = "var(--accent)";
+                statusMsg.textContent = "✓ Message sent successfully!";
                 contactForm.reset();
+                setTimeout(() => {
+                    if (statusMsg) statusMsg.textContent = "";
+                }, 6000);
             } else {
                 throw new Error(data.error || "Failed to send message");
             }
         } catch (error) {
             console.error("Contact form error:", error);
-            alert(error.message);
+            const statusMsg = contactForm.querySelector('.status-msg');
+            if (statusMsg) {
+                statusMsg.style.color = "#ff4d4d";
+                statusMsg.textContent = "✕ " + (error.message.includes("fetch") ? "Connection failed. Check your internet." : error.message);
+            }
         } finally {
             submitBtn.disabled = false;
             btnText.textContent = "Send Message";

@@ -759,6 +759,11 @@ input,
 .btn-text {
     position: relative;
     z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.music-action-btn:hover .btn-text {
+    color: #000;
 }
 
 .pulse-ring {
