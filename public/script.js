@@ -6,7 +6,7 @@ if (typing) {
         "Data Science Enthusiast",
         "Machine Learning Developer",
         "Web Developer",
-        "Creative Technologist"
+        "Full Stack Web Developer"
     ];
 
     let i = 0, j = 0, del = false;
