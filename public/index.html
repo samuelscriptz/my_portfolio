@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Samuel Paul A">
+    <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="fi56xdop4q_tgI21DxPFeG20oaygXBZBZVLUg_m6eFA" />
     <title>Samuel Paul A | Full Stack Web Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +12,10 @@
         content="Samuel Paul is a Full Stack Web Developer building modern, scalable websites and applications.">
     <meta name="keywords"
         content="Samuel Paul A, Portfolio, Data Science, Web Development, Freelancer, AI, Machine Learning, Full Stack Web Developer">
+
+    <!-- Performance Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -52,11 +58,7 @@
                 SAMUEL PAUL A <span>| Full Stack Web Developer</span>
             </div>
 
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <!-- Removed mobile-menu-toggle -->
 
             <ul>
                 <li><a href="#hero" class="active">Home</a></li>
@@ -71,7 +73,7 @@
 
     <!-- HERO -->
     <section id="hero">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline preload="auto" width="1920" height="1080">
             <source src="hero.mp4" type="video/mp4">
         </video>
 
@@ -148,7 +150,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-flex">
                 <div class="about-image">
-                    <img src="profile.jpeg" alt="Samuel Paul A">
+                    <img src="profile.jpeg" alt="Samuel Paul A" width="450" height="450" loading="lazy">
                 </div>
                 <div class="about-text">
                     <p>I’m a Computer Science student specializing in Data Science and a freelancer who builds modern,

@@ -3,11 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Samuel Paul A">
+    <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="fi56xdop4q_tgI21DxPFeG20oaygXBZBZVLUg_m6eFA" />
     <title>Profile | Samuel Paul A - Full Stack Web Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="View the professional profile of Samuel Paul A, a Full Stack Web Developer specializing in Data Science and Web Development.">
+
+    <!-- Performance Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -101,6 +107,29 @@
             display: inline-block;
             margin-top: 10px;
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .profile-container {
+                padding: 30px 20px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-bio {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -111,7 +140,7 @@
     <div id="stars-container"></div>
 
     <div class="profile-container glass-card reveal active">
-        <img src="profile.jpeg" alt="Samuel Paul A" class="profile-image">
+        <img src="profile.jpeg" alt="Samuel Paul A" class="profile-image" width="280" height="280">
         <h1 class="profile-name">SAMUEL PAUL A</h1>
         <p class="profile-title">B. Tech Computer Science Engineering</p>
 
